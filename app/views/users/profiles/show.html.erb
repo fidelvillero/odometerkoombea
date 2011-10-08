@@ -1,5 +1,16 @@
 <html>
 <table>
+	<br>
+	<br>
+	<%#= image_tag @user.avatar.url %>
+	<%#= image_tag @user.avatar.url(:medium) %>
+	<%#= image_tag @user.avatar.url(:thumb) %>
+
+	<div id='chart'>
+		akiiiiii
+	</div>
+	<%= render_chart(@Tabla, 'chart') %>
+	
 	<tr>
 		<td><b><i>Name:</i></b></td>
 		<td><%=@user_show.full_name%></td>
@@ -19,6 +30,10 @@
 	<tr>
 		<td><b><i>Initial_Odometer:</b></i></td>
 		<td><%=@car_pertinente.initial_odometer%></td>
+	</tr>
+	<tr>
+		<td><b><i>Cheapest:</b></i></td>
+		<td><i>$<%=Service.minimum('average_costo_gal')%></i></td>
 	</tr>
 </table>
 	

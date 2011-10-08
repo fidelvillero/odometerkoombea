@@ -1,25 +1,17 @@
 <html>
-<tr>	
-		<b>name:</b>
-		<%= @station.name %>
-</tr>
-
+<table>
+	<thead><%=link_to "new station", new_station_path%></thead>
+	<br>
+	
 	<tr>
-		<b>Address:</b>
-		<%= @station.address %>
+		<td><b><i>Name :</i></b></td>
+		<td><%=@station.name%></td>
 	</tr>
-
-
-	<tr>	
-		<b>geolocation:</b>
-		<%= @station.geolocation %>
+	<tr>
+		<td><b><i>Address :</i></b></td>
+		<td><%=@station.address%></td>
 	</tr>
 	
-<b>Date:</b>
-<%= @station.address%>
-
-
-<b>Coste:</b>
-<%= @station.geolocation%>
-
+</table>
+	
 </html>

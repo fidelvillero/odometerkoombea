@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111007023718) do
+ActiveRecord::Schema.define(:version => 20111007053959) do
 
   create_table "cars", :force => true do |t|
     t.string   "make"
@@ -21,10 +21,44 @@ ActiveRecord::Schema.define(:version => 20111007023718) do
     t.datetime "updated_at"
   end
 
+  create_table "entries", :force => true do |t|
+    t.date     "Date"
+    t.integer  "station_id"
+    t.integer  "user_id"
+    t.float    "Coste"
+    t.float    "gal"
+    t.float    "km"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gas", :force => true do |t|
+    t.integer  "station_id"
+    t.date     "Date"
+    t.float    "Coste"
+    t.float    "gal"
+    t.float    "km"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "geolocation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "services", :force => true do |t|
+    t.integer  "station_id"
+    t.integer  "user_id"
+    t.date     "Date"
+    t.float    "costo_gas"
+    t.float    "cant_gal"
+    t.float    "kmr"
+    t.float    "average_km_gas"
+    t.float    "average_costo_gal"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,6 +86,10 @@ ActiveRecord::Schema.define(:version => 20111007023718) do
     t.string   "full_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
